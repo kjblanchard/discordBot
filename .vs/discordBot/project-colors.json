@@ -5,7 +5,12 @@
       "ProjectGuid": "1a5c6871-fd6b-46f5-9d2d-903bc8a91a45",
       "DisplayName": "discordBot",
       "ColorIndex": 0
+    },
+    "5b84ee09-2300-43c6-a8b6-25ca111ab058": {
+      "ProjectGuid": "5b84ee09-2300-43c6-a8b6-25ca111ab058",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
