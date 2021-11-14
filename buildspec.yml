@@ -28,7 +28,3 @@ phases:
       - docker login -u enf3rno -p 06b85751-9929-4f02-af36-84a34e7b4e69
       - docker image push enf3rno/supergoondiscordbot:csharp 
       - echo Build completed on `date`
-artifacts:
-  files:
-    - '**/*'
-  base-directory: 'WebGL-Dist'
