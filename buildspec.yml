@@ -1,0 +1,34 @@
+version: 0.2
+env:
+  parameter-store:
+    UNITY_SERIAL: "/CodeBuild/unitySerial"
+    UNITY_USERNAME: "/CodeBuild/unityUsername"
+    UNITY_PASSWORD: "/CodeBuild/unityPassword"
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+    finally:
+      - echo This always runs even if the update or install command fails 
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+      - ls -ld -- */
+    finally:
+      - echo This always runs even if the login command fails 
+  build:
+    commands:
+      - echo Entered the build phase...
+      - docker image build -t enf3rno/supergoondiscordbot:csharp .
+    finally:
+      - echo This always runs even if the install command fails
+  post_build:
+    commands:
+      - docker login -u enf3rno -p 06b85751-9929-4f02-af36-84a34e7b4e69
+      - docker image push enf3rno/supergoondiscordbot:csharp 
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'WebGL-Dist'
