@@ -1,10 +1,4 @@
 version: 0.2
-env:
-  parameter-store:
-    UNITY_SERIAL: "/CodeBuild/unitySerial"
-    UNITY_USERNAME: "/CodeBuild/unityUsername"
-    UNITY_PASSWORD: "/CodeBuild/unityPassword"
-
 phases:
   install:
     commands:
