@@ -11,7 +11,7 @@ static async Task MainAsync()
     {
         Token = "OTA4MDM0NDUzMzYyODYwMTQy.YYv2_A.yjQ1dQwxwdiQYNDSDQbZ1KJhapY",
         TokenType = TokenType.Bot,
-        Intents = DiscordIntents.AllUnprivileged
+        Intents = DiscordIntents.All
 
     });
 
