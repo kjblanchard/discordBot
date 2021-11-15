@@ -8,13 +8,12 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - ls -ld -- */
     finally:
       - echo This always runs even if the login command fails 
   build:
     commands:
       - echo Entered the build phase...
-      - cd dotnetBot
+      - ls -ld -- */
       - docker image build -t enf3rno/supergoondiscordbot:csharp .
     finally:
       - echo This always runs even if the install command fails
