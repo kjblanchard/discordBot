@@ -1,4 +1,8 @@
 version: 0.2
+env:
+  parameter-store:
+    DOCKERPASSWORD=/CodeBuild/dockerLoginPassword
+    DOCKERUSERNAME=/CodeBuild/dockerLoginUsername
 phases:
   install:
     commands:
@@ -14,11 +18,11 @@ phases:
     commands:
       - echo Entered the build phase...
       - ls -ld -- */
-      - docker image build -t enf3rno/supergoondiscordbot:csharp .
+      - docker image build -t $DOCKERUSERNAME/supergoondiscordbot:csharp .
     finally:
       - echo This always runs even if the install command fails
   post_build:
     commands:
-      - docker login -u enf3rno -p 06b85751-9929-4f02-af36-84a34e7b4e69
+      - docker login -u $DOCKERUSERNAME -p $DOCKERPASSWORD
       - docker image push enf3rno/supergoondiscordbot:csharp 
       - echo Build completed on `date`
