@@ -1,8 +1,8 @@
 version: 0.2
 env:
   parameter-store:
-    DOCKERPASSWORD=/CodeBuild/dockerLoginPassword
-    DOCKERUSERNAME=/CodeBuild/dockerLoginUsername
+    DOCKERPASSWORD: /CodeBuild/dockerLoginPassword
+    DOCKERUSERNAME: /CodeBuild/dockerLoginUsername
 phases:
   install:
     commands:
@@ -24,5 +24,5 @@ phases:
   post_build:
     commands:
       - docker login -u $DOCKERUSERNAME -p $DOCKERPASSWORD
-      - docker image push enf3rno/supergoondiscordbot:csharp 
+      - docker image push $DOCKERUSERNAME/supergoondiscordbot:csharp 
       - echo Build completed on `date`
