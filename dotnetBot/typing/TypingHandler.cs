@@ -16,9 +16,8 @@ namespace discordBot.typing
             _client.TypingStarted += async (sender, args) =>
             {
                 var nickname = args.Guild.GetMemberAsync(args.User.Id).Result.Nickname;
-                if (args.User.Id == Constants.KevinsUserId && args.Channel.Id == Constants.BotChannelId)
+                if (args.User.Id == Constants.ConfigurationFile.KevinsUserId && args.Channel.Id == Constants.ConfigurationFile.BotChannelId)
                 {
-                    Constants.BotChannel ??= args.Channel;
                     await _client.SendMessageAsync(args.Channel, $"Kevin, quit typing you lil loser");
                 }
 
