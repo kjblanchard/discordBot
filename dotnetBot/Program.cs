@@ -1,7 +1,6 @@
 ﻿using discordBot.messages;
 using discordBot.typing;
 using DSharpPlus;
-using DSharpPlus.Entities;
 using discordBot;
 using discordBot.Presence;
 
