@@ -18,7 +18,6 @@ namespace discordBot.messages
             var nameAndDesc = informationPassedIn.Split(',', 2);
             if (nameAndDesc.Length != 2)
                 return "This command is used like !addbacklog name,description";
-            using var httpClient = Constants.TrelloHttp;
             var jsonBody = new models.TrelloCard
             {
                 name = nameAndDesc.First().Trim(),
@@ -26,7 +25,7 @@ namespace discordBot.messages
             };
             var jsonString = JsonSerializer.Serialize(jsonBody);
             var body = new StringContent(jsonString, Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync(Constants.TrelloPostCardUrl, body);
+            var result = await Constants.TrelloHttp.PostAsync(Constants.TrelloPostCardUrl, body);
             Console.WriteLine($"The status code of our response was {result.StatusCode}");
             return result.IsSuccessStatusCode ? "Just made that for you boss!" : $"Something went wrong, the result was {result.StatusCode}, check my log files!";
         }
